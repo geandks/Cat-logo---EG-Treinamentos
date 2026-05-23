@@ -340,6 +340,17 @@
             <button class="adm-btn adm-btn-ghost" onclick="closeAdmin()" style="padding:8px 16px;">&#10005; Fechar</button>
         </div>
         <p class="sub">Edite os serviços e clique em <strong>"Publicar Online"</strong> para salvar.</p>
+
+        <!-- SEÇÃO JSONBin - CONFIGURAÇÃO -->
+        <div style="margin-bottom:20px;padding:18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;">
+            <h4 style="color:#f59e0b;margin-bottom:12px;">&#128273; Configuração JSONBin</h4>
+            <p style="font-size:11px;color:#64748b;margin-bottom:12px;">Se precisar trocar o Bin, altere aqui e clique "Publicar Online".</p>
+            <div class="adm-grid2">
+                <div class="adm-fg"><label>X-Master-Key</label><input id="jbKey" placeholder="$2a$10$..."></div>
+                <div class="adm-fg"><label>Bin ID</label><input id="jbBin" placeholder="ID do Bin"></div>
+            </div>
+        </div>
+
         <div style="margin-bottom:20px;padding:18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;">
             <h4 style="color:#3b82f6;margin-bottom:12px;">&#128200; Estatísticas do Hero</h4>
             <div class="adm-grid2">
@@ -381,11 +392,15 @@
 
 <script>
 // ============================================================
-// CONFIGURAÇÃO FIXA - JSONBin.io
+// CONFIGURAÇÃO PADRÃO - JSONBin.io (fixas no código)
 // ============================================================
-var JSONBIN_MASTER_KEY = '$2a$10$1auF7T0NI0oXE2dAW4G6iOeGgFJlIShOSpyvmPFkKEKxApv9IC0sO';
-var JSONBIN_BIN_ID = '6af1045bee5a733b12052ea3';
+var JSONBIN_MASTER_KEY_DEFAULT = '$2a$10$1auF7T0NI0oXE2dAW4G6iOeGgFJlIShOSpyvmPFkKEKxApv9IC0sO';
+var JSONBIN_BIN_ID_DEFAULT = '6a1121e5ee5a733b1205d6e1';
 var ADM_SENHA = 'eg2024';
+
+// Variáveis ativas (podem ser alteradas pelo admin na sessão)
+var JSONBIN_MASTER_KEY = JSONBIN_MASTER_KEY_DEFAULT;
+var JSONBIN_BIN_ID = JSONBIN_BIN_ID_DEFAULT;
 
 // Dados padrão (fallback se JSONBin não responder)
 var DEFAULT_SERVICOS=[
@@ -417,11 +432,25 @@ var DADOS = {hero: null, servicos: null};
 function toast(m,t){t=t||'success';var e=document.getElementById('toast');e.innerHTML=m;e.className='toast '+t+' show';setTimeout(function(){e.classList.remove('show');},4000);}
 
 // ============================================================
+// JSONBIN - Obter chave e bin ativos (do campo admin ou padrão)
+// ============================================================
+function getJBKey(){
+    var campo = document.getElementById('jbKey');
+    return (campo && campo.value.trim()) ? campo.value.trim() : JSONBIN_MASTER_KEY;
+}
+function getJBBin(){
+    var campo = document.getElementById('jbBin');
+    return (campo && campo.value.trim()) ? campo.value.trim() : JSONBIN_BIN_ID;
+}
+
+// ============================================================
 // JSONBIN - LEITURA
 // ============================================================
 function carregarDoJsonBin(callback){
-    fetch('https://api.jsonbin.io/v3/b/' + JSONBIN_BIN_ID + '/latest', {
-        headers: {'X-Master-Key': JSONBIN_MASTER_KEY}
+    var binId = JSONBIN_BIN_ID;
+    var masterKey = JSONBIN_MASTER_KEY;
+    fetch('https://api.jsonbin.io/v3/b/' + binId + '/latest', {
+        headers: {'X-Master-Key': masterKey}
     })
     .then(function(r){
         if(!r.ok) throw new Error('HTTP '+r.status);
@@ -437,15 +466,37 @@ function carregarDoJsonBin(callback){
 }
 
 // ============================================================
-// JSONBIN - ESCRITA (PUBLICAR)
+// JSONBIN - ESCRITA (PUBLICAR) - usa valores do campo admin
 // ============================================================
 function publicarOnline(){
+    // Salvar dados do hero da tela
+    DADOS.hero={
+        alunos:document.getElementById('hAlunos').value.trim(),
+        cursos:document.getElementById('hCursos').value.trim(),
+        empresas:document.getElementById('hEmpresas').value.trim(),
+        whats:document.getElementById('hWhats').value.trim(),
+        senha:document.getElementById('hSenha').value.trim()||'eg2024'
+    };
+    ADM_SENHA = DADOS.hero.senha;
+
+    var masterKey = getJBKey();
+    var binId = getJBBin();
+
+    if(!masterKey || !binId){
+        toast('Preencha a Master Key e o Bin ID!','error');
+        return;
+    }
+
+    // Atualizar variáveis ativas na sessão
+    JSONBIN_MASTER_KEY = masterKey;
+    JSONBIN_BIN_ID = binId;
+
     var dados = {hero: DADOS.hero, servicos: DADOS.servicos};
-    fetch('https://api.jsonbin.io/v3/b/' + JSONBIN_BIN_ID, {
+    fetch('https://api.jsonbin.io/v3/b/' + binId, {
         method:'PUT',
         headers:{
             'Content-Type':'application/json',
-            'X-Master-Key': JSONBIN_MASTER_KEY
+            'X-Master-Key': masterKey
         },
         body: JSON.stringify(dados)
     })
@@ -455,6 +506,7 @@ function publicarOnline(){
     })
     .then(function(){
         toast('&#127757; Publicado com sucesso! Todos verão as mudanças.');
+        render();
     })
     .catch(function(err){
         toast('Erro ao publicar: '+err.message,'error');
@@ -554,6 +606,9 @@ function openAdmin(){
     document.getElementById('hEmpresas').value=h.empresas||'';
     document.getElementById('hWhats').value=h.whats||'';
     document.getElementById('hSenha').value=h.senha||'eg2024';
+    // Preencher campos JSONBin com valores ativos
+    document.getElementById('jbKey').value=JSONBIN_MASTER_KEY;
+    document.getElementById('jbBin').value=JSONBIN_BIN_ID;
     loadAdmSrvs();
     document.getElementById('adminPanel').classList.add('show');
 }
@@ -567,6 +622,11 @@ function closeAdmin(){
         senha:document.getElementById('hSenha').value.trim()||'eg2024'
     };
     ADM_SENHA = DADOS.hero.senha;
+    // Atualizar chaves JSONBin na sessão
+    var novaKey = document.getElementById('jbKey').value.trim();
+    var novoBin = document.getElementById('jbBin').value.trim();
+    if(novaKey) JSONBIN_MASTER_KEY = novaKey;
+    if(novoBin) JSONBIN_BIN_ID = novoBin;
     document.getElementById('adminPanel').classList.remove('show');
     render();
 }
