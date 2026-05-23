@@ -24,7 +24,6 @@
         html{scroll-behavior:smooth;}
         body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
         ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.15);border-radius:10px;}
-
         .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 20px;transition:all 0.4s;}
         .nav.scrolled{background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,0.06);padding:8px 20px;}
         .nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
@@ -41,7 +40,6 @@
         .nav.scrolled .nav-admin{background:var(--bg2)!important;color:var(--text4)!important;}
         .menu-btn{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;}
         .nav.scrolled .menu-btn{color:var(--text);}
-
         .hero{background:linear-gradient(135deg,#0a1628 0%,#1a3a6c 40%,#2563eb 100%);min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
         .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="g" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect fill="url(%23g)" width="100" height="100"/></svg>');pointer-events:none;}
         .hero-shapes{position:absolute;width:100%;height:100%;pointer-events:none;overflow:hidden;}
@@ -67,7 +65,6 @@
         .hero-visual{display:flex;justify-content:center;align-items:center;position:relative;}
         .hero-img-main{width:90%;max-width:480px;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,0.4);border:3px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
         .hero-glow{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,0.3),transparent);border-radius:50%;z-index:0;top:50%;left:50%;transform:translate(-50%,-50%);}
-
         .section{padding:100px 30px;}
         .section-center{max-width:1200px;margin:0 auto;}
         .section-head{text-align:center;margin-bottom:60px;}
@@ -75,7 +72,6 @@
         .section-head h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:var(--text);margin-bottom:15px;}
         .section-head h2 span{color:var(--azul2);}
         .section-head p{font-size:16px;color:var(--text3);max-width:600px;margin:0 auto;line-height:1.7;}
-
         .srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:25px;}
         .srv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;box-shadow:var(--shadow);position:relative;}
         .srv-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:var(--azul3);}
@@ -102,7 +98,6 @@
         .srv-price em{font-style:normal;font-size:11px;color:var(--text4);}
         .srv-btn{padding:10px 22px;background:linear-gradient(135deg,var(--azul),var(--azul2));color:#fff;border:none;border-radius:50px;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:inherit;}
         .srv-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,0.3);}
-
         .dif-section{background:linear-gradient(180deg,var(--bg2),var(--branco));}
         .dif-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
         .dif-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:30px;text-align:center;transition:all 0.3s;box-shadow:var(--shadow);}
@@ -110,7 +105,6 @@
         .dif-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px;background:linear-gradient(135deg,rgba(37,99,235,0.08),rgba(245,158,11,0.08));}
         .dif-card h4{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
         .dif-card p{font-size:13px;color:var(--text3);line-height:1.6;}
-
         .app-section{background:linear-gradient(135deg,#0a1628,#1a3a6c);position:relative;overflow:hidden;}
         .app-section::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 70% 50%,rgba(37,99,235,0.15),transparent);pointer-events:none;}
         .app-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
@@ -123,7 +117,6 @@
         .app-logos{display:flex;gap:25px;margin-top:40px;justify-content:center;align-items:center;flex-wrap:wrap;}
         .app-logo-item{width:200px;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,0.3);border:2px solid rgba(255,255,255,0.08);overflow:hidden;}
         .app-logo-item img{width:100%;display:block;}
-
         .cta-section{background:var(--branco);text-align:center;}
         .cta-box{background:linear-gradient(135deg,var(--azul),var(--azul2));border-radius:30px;padding:60px 40px;max-width:800px;margin:0 auto;position:relative;overflow:hidden;}
         .cta-box::before{content:'';position:absolute;top:-50px;right:-50px;width:250px;height:250px;background:rgba(255,255,255,0.05);border-radius:50%;}
@@ -133,12 +126,10 @@
         .cta-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
         .btn-whats{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,0.3);}
         .btn-whats:hover{box-shadow:0 8px 30px rgba(37,211,102,0.45);}
-
         .footer{background:#060e1a;color:rgba(255,255,255,0.5);padding:50px 30px 30px;text-align:center;}
         .footer-logo{height:70px;margin-bottom:20px;opacity:0.9;}
         .footer p{font-size:13px;line-height:1.8;}
         .footer a{color:var(--azul3);text-decoration:none;}
-
         .admin-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:500;justify-content:center;align-items:flex-start;overflow-y:auto;padding:30px 15px;}
         .admin-overlay.show{display:flex;}
         .admin-panel{background:linear-gradient(180deg,#132a4a,#0a1628);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:35px;width:750px;max-width:100%;color:#fff;box-shadow:0 30px 80px rgba(0,0,0,0.5);margin:auto;}
@@ -153,34 +144,28 @@
         .adm-btn{padding:12px 24px;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:inherit;color:#fff;}
         .adm-btn-s{background:linear-gradient(135deg,#16a34a,#15803d);box-shadow:0 4px 15px rgba(22,163,74,0.25);}
         .adm-btn-d{background:linear-gradient(135deg,#dc2626,#b91c1c);box-shadow:0 4px 15px rgba(220,38,38,0.25);}
-        .adm-btn-w{background:linear-gradient(135deg,#e67e22,#d97706);box-shadow:0 4px 15px rgba(230,126,34,0.25);}
         .adm-btn-ghost{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);}
         .adm-btn:hover{transform:translateY(-2px);}
         .srv-edit-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px;margin-bottom:15px;}
         .srv-edit-card h4{color:var(--azul3);margin-bottom:12px;font-size:15px;}
         .adm-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
         .adm-actions{display:flex;gap:8px;margin-top:10px;}
-
         .login-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:500;justify-content:center;align-items:center;}
         .login-modal.show{display:flex;}
         .login-box{background:linear-gradient(180deg,#132a4a,#0a1628);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px;width:400px;max-width:90%;color:#fff;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.5);}
         .login-box h3{font-size:20px;font-weight:800;margin-bottom:8px;}
         .login-box .sub{color:#64748b;font-size:13px;margin-bottom:25px;}
-
         .toast{position:fixed;bottom:30px;right:30px;padding:16px 24px;border-radius:14px;color:#fff;font-size:13px;font-weight:600;z-index:9999;transform:translateX(400px);transition:transform 0.4s;max-width:350px;box-shadow:0 10px 30px rgba(0,0,0,0.2);}
         .toast.show{transform:translateX(0);}
         .toast.success{background:var(--verde);}
         .toast.error{background:#dc2626;}
         .toast.info{background:var(--azul2);}
-
         .whats-float{position:fixed;bottom:25px;right:25px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;text-decoration:none;z-index:400;box-shadow:0 6px 25px rgba(37,211,102,0.4);transition:all 0.3s;}
         .whats-float:hover{transform:scale(1.1);box-shadow:0 10px 35px rgba(37,211,102,0.5);}
-
         .loading-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,22,40,0.95);z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;gap:15px;transition:opacity 0.4s;}
         .loading-overlay.hide{opacity:0;pointer-events:none;}
         .spinner{width:40px;height:40px;border:4px solid rgba(255,255,255,0.1);border-top-color:var(--azul3);border-radius:50%;animation:spin 0.8s linear infinite;}
         @keyframes spin{to{transform:rotate(360deg);}}
-
         @media(max-width:900px){
             .hero-inner{grid-template-columns:1fr;text-align:center;padding:100px 20px 60px;}
             .hero-text h1{font-size:34px;}
@@ -217,7 +202,6 @@
 </head>
 <body>
 
-<!-- LOADING -->
 <div class="loading-overlay" id="loadingOverlay">
     <div class="spinner"></div>
     <span>Carregando catálogo...</span>
@@ -233,7 +217,7 @@
             <a class="nav-link" href="#diferenciais" onclick="closeNav()">Diferenciais</a>
             <a class="nav-link" href="#plataforma" onclick="closeNav()">Plataforma</a>
             <a class="nav-link" href="#contato" onclick="closeNav()">Contato</a>
-            <a class="nav-link nav-cta" href="#" id="navWhats" target="_blank" onclick="closeNav()">&#128172; WhatsApp</a>
+            <a class="nav-link nav-cta wpp-link" href="#" target="_blank" onclick="closeNav()">&#128172; WhatsApp</a>
             <button class="nav-link nav-admin" onclick="closeNav();openLogin()">&#128274; Admin</button>
         </div>
     </div>
@@ -337,7 +321,6 @@
 
 <a class="whats-float wpp-link" href="#" target="_blank" title="WhatsApp">&#128172;</a>
 
-<!-- LOGIN MODAL -->
 <div class="login-modal" id="loginModal">
     <div class="login-box">
         <h3>&#128274; Área Administrativa</h3>
@@ -350,40 +333,25 @@
     </div>
 </div>
 
-<!-- ADMIN PANEL -->
 <div class="admin-overlay" id="adminPanel">
     <div class="admin-panel">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
             <h2>&#9881; Painel Administrativo</h2>
             <button class="adm-btn adm-btn-ghost" onclick="closeAdmin()" style="padding:8px 16px;">&#10005; Fechar</button>
         </div>
-        <p class="sub">Edite os serviços, descrições e valores. Clique em <strong>"Publicar Online"</strong> para salvar no servidor.</p>
-
-        <!-- JSONBIN CONFIG -->
-        <div style="margin-bottom:20px;padding:18px;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:14px;">
-            <h4 style="color:#3b82f6;margin-bottom:12px;">&#9729; Configuração JSONBin.io</h4>
-            <div class="adm-fg"><label>X-Master-Key</label><input id="cfgMasterKey" placeholder="Cole sua Master Key do jsonbin.io"></div>
-            <div class="adm-fg"><label>Bin ID (deixe vazio na 1ª vez — será criado automaticamente)</label><input id="cfgBinId" placeholder="Ex: 665a1f..."></div>
-            <button class="adm-btn adm-btn-ghost" onclick="saveJsonBinConfig()" style="padding:8px 16px;font-size:12px;">Salvar Config Local</button>
-        </div>
-
-        <!-- HERO CONFIG -->
+        <p class="sub">Edite os serviços e clique em <strong>"Publicar Online"</strong> para salvar.</p>
         <div style="margin-bottom:20px;padding:18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;">
             <h4 style="color:#3b82f6;margin-bottom:12px;">&#128200; Estatísticas do Hero</h4>
             <div class="adm-grid2">
                 <div class="adm-fg"><label>Alunos Capacitados</label><input id="hAlunos" placeholder="500+"></div>
                 <div class="adm-fg"><label>Cursos Disponíveis</label><input id="hCursos" placeholder="30+"></div>
                 <div class="adm-fg"><label>Empresas Atendidas</label><input id="hEmpresas" placeholder="50+"></div>
-                <div class="adm-fg"><label>WhatsApp (com DDI)</label><input id="hWhats" placeholder="5511999999999"></div>
+                <div class="adm-fg"><label>WhatsApp (com DDI)</label><input id="hWhats" placeholder="5543991952403"></div>
             </div>
             <div class="adm-fg"><label>Senha do Admin</label><input id="hSenha" placeholder="eg2024"></div>
         </div>
-
-        <!-- SERVIÇOS -->
         <h4 style="color:#f59e0b;margin-bottom:15px;">&#128218; Serviços / Treinamentos</h4>
         <div id="admSrvList"></div>
-
-        <!-- NOVO SERVIÇO -->
         <div style="margin-top:15px;padding:18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;">
             <h4 style="color:#22c55e;margin-bottom:12px;">&#10133; Adicionar Novo Serviço</h4>
             <div class="adm-grid2">
@@ -401,8 +369,6 @@
             <div class="adm-fg"><label style="display:flex;align-items:center;gap:8px;"><input type="checkbox" id="nsPop" style="width:16px;height:16px;accent-color:#f59e0b;"> Marcar como Popular</label></div>
             <button class="adm-btn adm-btn-s" onclick="addSrv()">+ Adicionar Serviço</button>
         </div>
-
-        <!-- PUBLICAR -->
         <div style="margin-top:25px;padding:22px;background:linear-gradient(135deg,rgba(22,163,74,0.08),rgba(37,99,235,0.08));border:1px solid rgba(22,163,74,0.2);border-radius:14px;text-align:center;">
             <h4 style="color:#22c55e;margin-bottom:8px;">&#127757; Publicar Alterações Online</h4>
             <p style="font-size:12px;color:#94a3b8;margin-bottom:15px;">Salva todos os dados no JSONBin.io. Qualquer pessoa que acessar o catálogo verá as mudanças.</p>
@@ -415,10 +381,13 @@
 
 <script>
 // ============================================================
-// JSONBIN.IO INTEGRATION - EG Treinamentos
+// CONFIGURAÇÃO FIXA - JSONBin.io
 // ============================================================
+var JSONBIN_MASTER_KEY = '$2a$10$1auF7T0NI0oXE2dAW4G6iOeGgFJlIShOSpyvmPFkKEKxApv9IC0sO';
+var JSONBIN_BIN_ID = '6af1045bee5a733b12052ea3';
+var ADM_SENHA = 'eg2024';
 
-// Dados padrão (usados apenas se JSONBin estiver vazio)
+// Dados padrão (fallback se JSONBin não responder)
 var DEFAULT_SERVICOS=[
     {id:'int',nome:'Integra\u00e7\u00e3o de Novos Colaboradores',cat:'Seguran\u00e7a',desc:'Treinamento completo para integra\u00e7\u00e3o de novos colaboradores, abordando normas de seguran\u00e7a, procedimentos internos e cultura da empresa.',ch:'4h',mod:'EAD',preco:'R$ 89,90',parc:'2x de R$ 44,95',img:'https://lh3.googleusercontent.com/d/13jxuRhTz3JuC9Myd52ioKhPDjtmGdWnn',pop:false},
     {id:'nr05',nome:'NR 05 - CIPA',cat:'NR',desc:'Forma\u00e7\u00e3o completa para membros da CIPA, incluindo preven\u00e7\u00e3o de acidentes, inspe\u00e7\u00f5es e investiga\u00e7\u00e3o de incidentes.',ch:'20h',mod:'EAD / Presencial',preco:'R$ 249,90',parc:'3x de R$ 83,30',img:'https://lh3.googleusercontent.com/d/1qai80qaxAoDzXz2EMByHTAv9tRXunNme',pop:false},
@@ -438,39 +407,22 @@ var DEFAULT_SERVICOS=[
     {id:'nr01',nome:'NR 01 - Disposi\u00e7\u00f5es Gerais / GRO',cat:'NR',desc:'Gerenciamento de riscos ocupacionais e disposi\u00e7\u00f5es gerais das normas regulamentadoras.',ch:'8h',mod:'EAD',preco:'R$ 149,90',parc:'2x de R$ 74,95',img:'https://lh3.googleusercontent.com/d/1KaWIRfasMWlE8HE_204Qq175f4d8WS3U',pop:false},
     {id:'pac',nome:'Pacote Empresarial Completo',cat:'Premium',desc:'Pacote com todos os treinamentos NRs dispon\u00edveis, personalizado para sua empresa. Ideal para grandes equipes.',ch:'Sob consulta',mod:'EAD + Presencial',preco:'Consulte',parc:'Sob medida',img:'https://lh3.googleusercontent.com/d/1G0GYJv7eV993wjfnljtRohF0oSMaOJyB',pop:true}
 ];
-
-var DEFAULT_HERO = {alunos:'500+',cursos:'30+',empresas:'50+',whats:'5500000000000',senha:'eg2024'};
+var DEFAULT_HERO = {alunos:'500+',cursos:'30+',empresas:'50+',whats:'5543991952403',senha:'eg2024'};
 
 // ============================================================
-// JSONBIN HELPER FUNCTIONS
+// VARIÁVEIS EM MEMÓRIA (sem localStorage)
 // ============================================================
+var DADOS = {hero: null, servicos: null};
 
-function getJBConfig(){
-    return {
-        masterKey: localStorage.getItem('jb_masterkey') || '$2a$10$1auF7T0NI0oXE2dAW4G6iOeGgFJlIShOSpyvmPFkKEKxApv9IC0sO',
-        binId: localStorage.getItem('jb_binid') || '6af1045bee5a733b12052ea3'
-    };
-}
-function saveJsonBinConfig(){
-    var mk = document.getElementById('cfgMasterKey').value.trim();
-    var bi = document.getElementById('cfgBinId').value.trim();
-    if(mk) localStorage.setItem('jb_masterkey', mk);
-    if(bi) localStorage.setItem('jb_binid', bi);
-    toast('Configuração JSONBin salva localmente!');
-}
+function toast(m,t){t=t||'success';var e=document.getElementById('toast');e.innerHTML=m;e.className='toast '+t+' show';setTimeout(function(){e.classList.remove('show');},4000);}
 
-// LER do JSONBin (público — sem necessidade de key para bins públicos)
+// ============================================================
+// JSONBIN - LEITURA
+// ============================================================
 function carregarDoJsonBin(callback){
-    var cfg = getJBConfig();
-    if(!cfg.binId){
-        // Sem Bin configurado — usar dados padrão
-        callback(null);
-        return;
-    }
-    var url = 'https://api.jsonbin.io/v3/b/' + cfg.binId + '/latest';
-    var headers = {'X-Access-Key': cfg.masterKey};
-
-    fetch(url, {headers: cfg.masterKey ? {'X-Master-Key': cfg.masterKey} : {}})
+    fetch('https://api.jsonbin.io/v3/b/' + JSONBIN_BIN_ID + '/latest', {
+        headers: {'X-Master-Key': JSONBIN_MASTER_KEY}
+    })
     .then(function(r){
         if(!r.ok) throw new Error('HTTP '+r.status);
         return r.json();
@@ -479,57 +431,21 @@ function carregarDoJsonBin(callback){
         callback(data.record || null);
     })
     .catch(function(err){
-        console.warn('JSONBin leitura falhou, usando dados locais:', err);
+        console.warn('JSONBin leitura falhou, usando dados padrão:', err);
         callback(null);
     });
 }
 
-// CRIAR bin novo
-function criarBin(dados, callback){
-    var cfg = getJBConfig();
-    if(!cfg.masterKey){
-        toast('Configure a Master Key primeiro!','error');
-        return;
-    }
-    fetch('https://api.jsonbin.io/v3/b', {
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json',
-            'X-Master-Key': cfg.masterKey,
-            'X-Bin-Name':'EG-Catalogo',
-            'X-Bin-Private':'false'
-        },
-        body: JSON.stringify(dados)
-    })
-    .then(function(r){
-        if(!r.ok) throw new Error('HTTP '+r.status);
-        return r.json();
-    })
-    .then(function(data){
-        var newId = data.metadata.id;
-        localStorage.setItem('jb_binid', newId);
-        document.getElementById('cfgBinId').value = newId;
-        toast('Bin criado com sucesso! ID: '+newId);
-        if(callback) callback(true);
-    })
-    .catch(function(err){
-        toast('Erro ao criar Bin: '+err.message,'error');
-        if(callback) callback(false);
-    });
-}
-
-// ATUALIZAR bin existente
-function atualizarBin(dados, callback){
-    var cfg = getJBConfig();
-    if(!cfg.masterKey || !cfg.binId){
-        toast('Configure Master Key e Bin ID!','error');
-        return;
-    }
-    fetch('https://api.jsonbin.io/v3/b/' + cfg.binId, {
+// ============================================================
+// JSONBIN - ESCRITA (PUBLICAR)
+// ============================================================
+function publicarOnline(){
+    var dados = {hero: DADOS.hero, servicos: DADOS.servicos};
+    fetch('https://api.jsonbin.io/v3/b/' + JSONBIN_BIN_ID, {
         method:'PUT',
         headers:{
             'Content-Type':'application/json',
-            'X-Master-Key': cfg.masterKey
+            'X-Master-Key': JSONBIN_MASTER_KEY
         },
         body: JSON.stringify(dados)
     })
@@ -537,61 +453,29 @@ function atualizarBin(dados, callback){
         if(!r.ok) throw new Error('HTTP '+r.status);
         return r.json();
     })
-    .then(function(data){
+    .then(function(){
         toast('&#127757; Publicado com sucesso! Todos verão as mudanças.');
-        if(callback) callback(true);
     })
     .catch(function(err){
         toast('Erro ao publicar: '+err.message,'error');
-        if(callback) callback(false);
     });
 }
 
-// PUBLICAR (cria ou atualiza)
-function publicarOnline(){
-    var dados = {
-        hero: gd('hero', DEFAULT_HERO),
-        servicos: gd('servicos', DEFAULT_SERVICOS)
-    };
-    var cfg = getJBConfig();
-    if(!cfg.masterKey){
-        toast('Configure a Master Key do JSONBin primeiro!','error');
-        return;
-    }
-    if(!cfg.binId){
-        // Primeiro uso — criar novo bin
-        criarBin(dados);
-    } else {
-        // Atualizar existente
-        atualizarBin(dados);
-    }
-}
-
 // ============================================================
-// LOCAL STORAGE HELPERS
+// INIT
 // ============================================================
-
-function gd(k,f){try{var d=localStorage.getItem('cat_'+k);return d?JSON.parse(d):f;}catch(e){return f;}}
-function sd(k,v){localStorage.setItem('cat_'+k,JSON.stringify(v));}
-function toast(m,t){t=t||'success';var e=document.getElementById('toast');e.innerHTML=m;e.className='toast '+t+' show';setTimeout(function(){e.classList.remove('show');},4000);}
-
-// ============================================================
-// INIT — CARREGAR DADOS DO JSONBIN OU LOCAL
-// ============================================================
-
 function initApp(){
     carregarDoJsonBin(function(dados){
         if(dados && dados.servicos){
-            // Dados do JSONBin encontrados — salvar localmente para renderizar
-            sd('servicos', dados.servicos);
-            sd('hero', dados.hero || DEFAULT_HERO);
+            DADOS.servicos = dados.servicos;
+            DADOS.hero = dados.hero || DEFAULT_HERO;
         } else {
-            // Sem dados online — usar padrão se localStorage vazio
-            if(!gd('servicos',null)) sd('servicos', DEFAULT_SERVICOS);
-            if(!gd('hero',null)) sd('hero', DEFAULT_HERO);
+            DADOS.servicos = DEFAULT_SERVICOS;
+            DADOS.hero = DEFAULT_HERO;
         }
+        // Usar senha do JSONBin se existir
+        if(DADOS.hero.senha) ADM_SENHA = DADOS.hero.senha;
         render();
-        // Remover loading
         var lo = document.getElementById('loadingOverlay');
         lo.classList.add('hide');
         setTimeout(function(){lo.style.display='none';},500);
@@ -601,13 +485,11 @@ function initApp(){
 // ============================================================
 // RENDER
 // ============================================================
-
-function getWhats(){var h=gd('hero',DEFAULT_HERO);return h.whats||'5500000000000';}
-function getSenha(){var h=gd('hero',DEFAULT_HERO);return h.senha||'eg2024';}
+function getWhats(){return (DADOS.hero && DADOS.hero.whats) || '5543991952403';}
 
 function renderServicos(){
-    var srvs=gd('servicos',[]);
-    var g=document.getElementById('srvGrid');
+    var srvs = DADOS.servicos || [];
+    var g = document.getElementById('srvGrid');
     g.innerHTML='';
     for(var i=0;i<srvs.length;i++){
         var s=srvs[i];
@@ -633,79 +515,64 @@ function renderServicos(){
 }
 
 function loadHero(){
-    var h=gd('hero',DEFAULT_HERO);
+    var h = DADOS.hero || DEFAULT_HERO;
     document.getElementById('statAlunos').textContent=h.alunos||'500+';
     document.getElementById('statCursos').textContent=h.cursos||'30+';
     document.getElementById('statEmpresas').textContent=h.empresas||'50+';
-    // Atualizar todos os links de WhatsApp
-    var wn = h.whats||'5500000000000';
+    var wn = h.whats||'5543991952403';
     var wppLinks = document.querySelectorAll('.wpp-link');
-    for(var i=0;i<wppLinks.length;i++){
-        wppLinks[i].href='https://wa.me/'+wn;
-    }
-    document.getElementById('navWhats').href='https://wa.me/'+wn;
+    for(var i=0;i<wppLinks.length;i++) wppLinks[i].href='https://wa.me/'+wn;
 }
 
 function render(){renderServicos();loadHero();}
 
 // ============================================================
-// NAV SCROLL
+// NAV
 // ============================================================
-
 window.addEventListener('scroll',function(){
     var nav=document.getElementById('navbar');
-    if(window.scrollY>50)nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    if(window.scrollY>50)nav.classList.add('scrolled');else nav.classList.remove('scrolled');
 });
 function closeNav(){document.getElementById('navLinks').classList.remove('open');}
-
 (function(){var mq=window.matchMedia('(max-width:900px)');function ch(e){var c=document.querySelector('.nav-close');if(c)c.style.display=e.matches?'block':'none';}ch(mq);if(mq.addEventListener)mq.addEventListener('change',ch);else mq.addListener(ch);})();
 
 // ============================================================
-// ADMIN LOGIN
+// ADMIN
 // ============================================================
-
 function openLogin(){document.getElementById('loginModal').classList.add('show');document.getElementById('admPass').value='';setTimeout(function(){document.getElementById('admPass').focus();},100);}
 function closeLogin(){document.getElementById('loginModal').classList.remove('show');}
 function doLogin(){
     var p=document.getElementById('admPass').value.trim();
-    if(p===getSenha()){closeLogin();openAdmin();toast('Painel aberto!');}
+    if(p===ADM_SENHA){closeLogin();openAdmin();toast('Painel aberto!');}
     else toast('Senha incorreta!','error');
 }
 
-// ============================================================
-// ADMIN PANEL
-// ============================================================
-
 function openAdmin(){
-    var h=gd('hero',DEFAULT_HERO);
+    var h=DADOS.hero||DEFAULT_HERO;
     document.getElementById('hAlunos').value=h.alunos||'';
     document.getElementById('hCursos').value=h.cursos||'';
     document.getElementById('hEmpresas').value=h.empresas||'';
     document.getElementById('hWhats').value=h.whats||'';
     document.getElementById('hSenha').value=h.senha||'eg2024';
-    // JSONBin config
-    var cfg = getJBConfig();
-    document.getElementById('cfgMasterKey').value = cfg.masterKey||'';
-    document.getElementById('cfgBinId').value = cfg.binId||'';
     loadAdmSrvs();
     document.getElementById('adminPanel').classList.add('show');
 }
-function closeAdmin(){document.getElementById('adminPanel').classList.remove('show');render();}
-
-function saveHero(){
-    var h={
+function closeAdmin(){
+    // Salvar hero da tela na memória
+    DADOS.hero={
         alunos:document.getElementById('hAlunos').value.trim(),
         cursos:document.getElementById('hCursos').value.trim(),
         empresas:document.getElementById('hEmpresas').value.trim(),
         whats:document.getElementById('hWhats').value.trim(),
         senha:document.getElementById('hSenha').value.trim()||'eg2024'
     };
-    sd('hero',h);toast('Hero salvo localmente! Clique "Publicar Online" para enviar ao servidor.');
+    ADM_SENHA = DADOS.hero.senha;
+    document.getElementById('adminPanel').classList.remove('show');
+    render();
 }
 
 function loadAdmSrvs(){
-    var srvs=gd('servicos',[]);
+    var srvs=DADOS.servicos||[];
     var list=document.getElementById('admSrvList');
     list.innerHTML='';
     for(var i=0;i<srvs.length;i++){
@@ -736,37 +603,34 @@ function loadAdmSrvs(){
 }
 
 function saveSrv(i){
-    var srvs=gd('servicos',[]);
-    srvs[i].nome=document.getElementById('sn'+i).value.trim();
-    srvs[i].cat=document.getElementById('sc'+i).value.trim();
-    srvs[i].ch=document.getElementById('sh'+i).value.trim();
-    srvs[i].mod=document.getElementById('sm'+i).value.trim();
-    srvs[i].desc=document.getElementById('sd'+i).value.trim();
-    srvs[i].preco=document.getElementById('sp'+i).value.trim();
-    srvs[i].parc=document.getElementById('sx'+i).value.trim();
-    srvs[i].img=document.getElementById('si'+i).value.trim();
-    srvs[i].pop=document.getElementById('sq'+i).checked;
-    sd('servicos',srvs);toast('Salvo localmente! Publique online para todos verem.');
+    DADOS.servicos[i].nome=document.getElementById('sn'+i).value.trim();
+    DADOS.servicos[i].cat=document.getElementById('sc'+i).value.trim();
+    DADOS.servicos[i].ch=document.getElementById('sh'+i).value.trim();
+    DADOS.servicos[i].mod=document.getElementById('sm'+i).value.trim();
+    DADOS.servicos[i].desc=document.getElementById('sd'+i).value.trim();
+    DADOS.servicos[i].preco=document.getElementById('sp'+i).value.trim();
+    DADOS.servicos[i].parc=document.getElementById('sx'+i).value.trim();
+    DADOS.servicos[i].img=document.getElementById('si'+i).value.trim();
+    DADOS.servicos[i].pop=document.getElementById('sq'+i).checked;
+    toast('Salvo em memória! Clique "Publicar Online" para enviar.');
 }
 
 function delSrv(i){
     if(!confirm('Remover este servi\u00e7o?'))return;
-    var srvs=gd('servicos',[]);srvs.splice(i,1);sd('servicos',srvs);
+    DADOS.servicos.splice(i,1);
     toast('Removido!');loadAdmSrvs();
 }
 
 function moveSrv(i,dir){
-    var srvs=gd('servicos',[]);
-    var ni=i+dir;if(ni<0||ni>=srvs.length)return;
-    var tmp=srvs[i];srvs[i]=srvs[ni];srvs[ni]=tmp;
-    sd('servicos',srvs);loadAdmSrvs();toast('Reordenado!');
+    var ni=i+dir;if(ni<0||ni>=DADOS.servicos.length)return;
+    var tmp=DADOS.servicos[i];DADOS.servicos[i]=DADOS.servicos[ni];DADOS.servicos[ni]=tmp;
+    loadAdmSrvs();toast('Reordenado!');
 }
 
 function addSrv(){
     var n=document.getElementById('nsNome').value.trim();
     if(!n)return toast('Preencha o nome!','error');
-    var srvs=gd('servicos',[]);
-    srvs.push({
+    DADOS.servicos.push({
         id:'srv_'+Date.now(),
         nome:n,
         cat:document.getElementById('nsCat').value.trim()||'Geral',
@@ -778,26 +642,22 @@ function addSrv(){
         img:document.getElementById('nsImg').value.trim()||'',
         pop:document.getElementById('nsPop').checked
     });
-    sd('servicos',srvs);
     var ids=['nsNome','nsCat','nsCH','nsMod','nsDesc','nsPreco','nsParc','nsImg'];
     for(var x=0;x<ids.length;x++)document.getElementById(ids[x]).value='';
     document.getElementById('nsPop').checked=false;
-    toast('Adicionado! Publique online para salvar no servidor.');loadAdmSrvs();
+    toast('Adicionado! Publique online para salvar.');loadAdmSrvs();
 }
 
 // ============================================================
 // MODAL CLICK-OUTSIDE
 // ============================================================
-
 document.getElementById('loginModal').addEventListener('click',function(e){if(e.target===this)closeLogin();});
 document.getElementById('adminPanel').addEventListener('click',function(e){if(e.target===this)closeAdmin();});
 
 // ============================================================
-// INICIAR APP
+// INICIAR
 // ============================================================
-
 initApp();
-
 </script>
 </body>
 </html>
