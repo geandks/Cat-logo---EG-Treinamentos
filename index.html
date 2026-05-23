@@ -447,11 +447,10 @@ var DEFAULT_HERO = {alunos:'500+',cursos:'30+',empresas:'50+',whats:'55000000000
 
 function getJBConfig(){
     return {
-        masterKey: localStorage.getItem('jb_masterkey') || '',
-        binId: localStorage.getItem('jb_binid') || ''
+        masterKey: localStorage.getItem('jb_masterkey') || '$2a$10$1auF7T0NI0oXE2dAW4G6iOeGgFJlIShOSpyvmPFkKEKxApv9IC0sO',
+        binId: localStorage.getItem('jb_binid') || '6af1045bee5a733b12052ea3'
     };
 }
-
 function saveJsonBinConfig(){
     var mk = document.getElementById('cfgMasterKey').value.trim();
     var bi = document.getElementById('cfgBinId').value.trim();
