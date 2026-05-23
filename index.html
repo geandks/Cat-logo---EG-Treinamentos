@@ -340,8 +340,6 @@
             <button class="adm-btn adm-btn-ghost" onclick="closeAdmin()" style="padding:8px 16px;">&#10005; Fechar</button>
         </div>
         <p class="sub">Edite os serviços e clique em <strong>"Publicar Online"</strong> para salvar.</p>
-
-        <!-- SEÇÃO JSONBin - CONFIGURAÇÃO -->
         <div style="margin-bottom:20px;padding:18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;">
             <h4 style="color:#f59e0b;margin-bottom:12px;">&#128273; Configuração JSONBin</h4>
             <p style="font-size:11px;color:#64748b;margin-bottom:12px;">Se precisar trocar o Bin, altere aqui e clique "Publicar Online".</p>
@@ -350,7 +348,6 @@
                 <div class="adm-fg"><label>Bin ID</label><input id="jbBin" placeholder="ID do Bin"></div>
             </div>
         </div>
-
         <div style="margin-bottom:20px;padding:18px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;">
             <h4 style="color:#3b82f6;margin-bottom:12px;">&#128200; Estatísticas do Hero</h4>
             <div class="adm-grid2">
@@ -389,7 +386,6 @@
 </div>
 
 <div class="toast" id="toast"></div>
-
 <script>
 // ============================================================
 // CONFIGURAÇÃO PADRÃO - JSONBin.io (fixas no código)
@@ -404,25 +400,29 @@ var JSONBIN_BIN_ID = JSONBIN_BIN_ID_DEFAULT;
 
 // Dados padrão (fallback se JSONBin não responder)
 var DEFAULT_SERVICOS=[
-    {id:'int',nome:'Integra\u00e7\u00e3o de Novos Colaboradores',cat:'Seguran\u00e7a',desc:'Treinamento completo para integra\u00e7\u00e3o de novos colaboradores, abordando normas de seguran\u00e7a, procedimentos internos e cultura da empresa.',ch:'4h',mod:'EAD',preco:'R$ 89,90',parc:'2x de R$ 44,95',img:'https://lh3.googleusercontent.com/d/13jxuRhTz3JuC9Myd52ioKhPDjtmGdWnn',pop:false},
-    {id:'nr05',nome:'NR 05 - CIPA',cat:'NR',desc:'Forma\u00e7\u00e3o completa para membros da CIPA, incluindo preven\u00e7\u00e3o de acidentes, inspe\u00e7\u00f5es e investiga\u00e7\u00e3o de incidentes.',ch:'20h',mod:'EAD / Presencial',preco:'R$ 249,90',parc:'3x de R$ 83,30',img:'https://lh3.googleusercontent.com/d/1qai80qaxAoDzXz2EMByHTAv9tRXunNme',pop:false},
-    {id:'nr06',nome:'NR 06 - EPI',cat:'NR',desc:'Capacita\u00e7\u00e3o sobre sele\u00e7\u00e3o, uso, guarda e conserva\u00e7\u00e3o de Equipamentos de Prote\u00e7\u00e3o Individual.',ch:'8h',mod:'EAD',preco:'R$ 129,90',parc:'2x de R$ 64,95',img:'https://lh3.googleusercontent.com/d/1wOrDZCZ9GjZYYy_vflGEhJixG23pZQJ2',pop:false},
-    {id:'nr10',nome:'NR 10 - Seguran\u00e7a em Eletricidade',cat:'NR',desc:'Treinamento obrigat\u00f3rio para profissionais que trabalham com instala\u00e7\u00f5es el\u00e9tricas e servi\u00e7os com eletricidade.',ch:'40h',mod:'EAD + Pr\u00e1tica',preco:'R$ 499,90',parc:'6x de R$ 83,32',img:'https://lh3.googleusercontent.com/d/16CNDpfkYDj58Cy5xJcGxjpt1r7Xpw9XG',pop:true},
-    {id:'nr12',nome:'NR 12 - Seguran\u00e7a em M\u00e1quinas',cat:'NR',desc:'Capacita\u00e7\u00e3o em seguran\u00e7a no trabalho com m\u00e1quinas e equipamentos conforme norma regulamentadora.',ch:'16h',mod:'EAD / Presencial',preco:'R$ 349,90',parc:'3x de R$ 116,63',img:'https://lh3.googleusercontent.com/d/10HhRBAv9OeYumBz7WJuYjzWzeoPsWKTj',pop:false},
-    {id:'nr20',nome:'NR 20 - Inflam\u00e1veis e Combust\u00edveis',cat:'NR',desc:'Seguran\u00e7a e sa\u00fade no trabalho com inflam\u00e1veis e combust\u00edveis. Preven\u00e7\u00e3o de inc\u00eandios e explos\u00f5es.',ch:'16h',mod:'EAD + Pr\u00e1tica',preco:'R$ 349,90',parc:'3x de R$ 116,63',img:'https://lh3.googleusercontent.com/d/1SgodQwXReUqgtGiEllY06XNsTnzAPi6g',pop:false},
-    {id:'nr33',nome:'NR 33 - Espa\u00e7os Confinados',cat:'NR',desc:'Treinamento para trabalho seguro em espa\u00e7os confinados, incluindo reconhecimento, avalia\u00e7\u00e3o e controle de riscos.',ch:'16h',mod:'EAD + Pr\u00e1tica',preco:'R$ 399,90',parc:'4x de R$ 99,98',img:'https://lh3.googleusercontent.com/d/10YuvIxGM2tVYIoVMsVv1jie-4AJ678oe',pop:true},
-    {id:'nr35',nome:'NR 35 - Trabalho em Altura',cat:'NR',desc:'Forma\u00e7\u00e3o obrigat\u00f3ria para atividades acima de 2 metros com risco de queda, incluindo parte te\u00f3rica e pr\u00e1tica.',ch:'8h',mod:'EAD + Pr\u00e1tica',preco:'R$ 299,90',parc:'3x de R$ 99,97',img:'https://lh3.googleusercontent.com/d/12mrnPXeaDZnpAHeRciG2meXs270hzb38',pop:true},
-    {id:'dd',nome:'Dire\u00e7\u00e3o Defensiva',cat:'Seguran\u00e7a',desc:'Treinamento em t\u00e9cnicas de dire\u00e7\u00e3o defensiva para prevenir acidentes no tr\u00e2nsito durante o trabalho.',ch:'8h',mod:'EAD',preco:'R$ 149,90',parc:'2x de R$ 74,95',img:'https://lh3.googleusercontent.com/d/117ey4S5BDWdxWTWdJlVptMrfyRoqZ8wv',pop:false},
-    {id:'ppr',nome:'PPR - Prote\u00e7\u00e3o Respirat\u00f3ria',cat:'Seguran\u00e7a',desc:'Programa de Prote\u00e7\u00e3o Respirat\u00f3ria com sele\u00e7\u00e3o, uso e manuten\u00e7\u00e3o de respiradores.',ch:'4h',mod:'EAD',preco:'R$ 99,90',parc:'2x de R$ 49,95',img:'https://lh3.googleusercontent.com/d/1rvFcJkIUyOPqc7GZ7QZoreJlT-tO65lw',pop:false},
-    {id:'nr11',nome:'NR 11 - Manuseio de Materiais',cat:'NR',desc:'Seguran\u00e7a na opera\u00e7\u00e3o de elevadores, guindastes, transportadores industriais e m\u00e1quinas transportadoras.',ch:'8h',mod:'EAD',preco:'R$ 179,90',parc:'2x de R$ 89,95',img:'https://lh3.googleusercontent.com/d/1KVPmR39MMs9StprwR0ZwvXr0XvV4fthE',pop:false},
-    {id:'nr17',nome:'NR 17 - Ergonomia',cat:'NR',desc:'Adapta\u00e7\u00e3o das condi\u00e7\u00f5es de trabalho \u00e0s caracter\u00edsticas dos trabalhadores para conforto e produtividade.',ch:'4h',mod:'EAD',preco:'R$ 99,90',parc:'2x de R$ 49,95',img:'https://lh3.googleusercontent.com/d/1yp-If011V-sU2SNFoIqHT1Jk0iWwod-S',pop:false},
-    {id:'nr23',nome:'NR 23 - Prote\u00e7\u00e3o contra Inc\u00eandios',cat:'NR',desc:'Preven\u00e7\u00e3o e combate a inc\u00eandios, incluindo uso de extintores e plano de emerg\u00eancia.',ch:'4h',mod:'EAD',preco:'R$ 99,90',parc:'2x de R$ 49,95',img:'https://lh3.googleusercontent.com/d/1kTw5A2vZwUMc4NbXB5eMfLmTztb9l707',pop:false},
-    {id:'nr18',nome:'NR 18 - Constru\u00e7\u00e3o Civil',cat:'NR',desc:'Seguran\u00e7a e sa\u00fade ocupacional na ind\u00fastria da constru\u00e7\u00e3o civil.',ch:'16h',mod:'EAD / Presencial',preco:'R$ 299,90',parc:'3x de R$ 99,97',img:'https://lh3.googleusercontent.com/d/1RZ2ymT_JzYYuNLk7V7np39L11Njsyvt3',pop:false},
-    {id:'nr13',nome:'NR 13 - Caldeiras e Vasos de Press\u00e3o',cat:'NR',desc:'Opera\u00e7\u00e3o segura de caldeiras, vasos de press\u00e3o e tubula\u00e7\u00f5es.',ch:'40h',mod:'EAD + Pr\u00e1tica',preco:'R$ 499,90',parc:'6x de R$ 83,32',img:'https://lh3.googleusercontent.com/d/1L97cE5NioZG3yfnivkcErke4NF_RPEzE',pop:false},
-    {id:'nr01',nome:'NR 01 - Disposi\u00e7\u00f5es Gerais / GRO',cat:'NR',desc:'Gerenciamento de riscos ocupacionais e disposi\u00e7\u00f5es gerais das normas regulamentadoras.',ch:'8h',mod:'EAD',preco:'R$ 149,90',parc:'2x de R$ 74,95',img:'https://lh3.googleusercontent.com/d/1KaWIRfasMWlE8HE_204Qq175f4d8WS3U',pop:false},
-    {id:'pac',nome:'Pacote Empresarial Completo',cat:'Premium',desc:'Pacote com todos os treinamentos NRs dispon\u00edveis, personalizado para sua empresa. Ideal para grandes equipes.',ch:'Sob consulta',mod:'EAD + Presencial',preco:'Consulte',parc:'Sob medida',img:'https://lh3.googleusercontent.com/d/1G0GYJv7eV993wjfnljtRohF0oSMaOJyB',pop:true}
+    {id:'int',nome:'Integração de Novos Colaboradores',cat:'Segurança',desc:'Treinamento completo para integração de novos colaboradores, abordando normas de segurança, procedimentos internos e cultura organizacional da empresa.',ch:'4h',mod:'EAD',preco:'R$ 49,90',parc:'',img:'',pop:false},
+    {id:'nr05',nome:'NR 05 - CIPA',cat:'NR',desc:'Formação completa para membros da Comissão Interna de Prevenção de Acidentes, incluindo prevenção de acidentes, inspeções e investigação de incidentes.',ch:'20h',mod:'EAD',preco:'R$ 69,90',parc:'',img:'https://lh3.googleusercontent.com/d/117ey4S5BDWdxWTWdJlVptMrfyRoqZ8wv',pop:false},
+    {id:'nr06',nome:'NR 06 - Equipamento de Proteção Individual (EPI)',cat:'NR',desc:'Capacitação sobre seleção, uso correto, guarda e conservação de Equipamentos de Proteção Individual conforme norma regulamentadora.',ch:'2h',mod:'EAD',preco:'R$ 49,90',parc:'',img:'https://lh3.googleusercontent.com/d/10HhRBAv9OeYumBz7WJuYjzWzeoPsWKTj',pop:false},
+    {id:'nr10',nome:'NR 10 - Segurança em Instalações e Serviços em Eletricidade',cat:'NR',desc:'Treinamento obrigatório para profissionais que trabalham com instalações elétricas e serviços com eletricidade, abordando medidas de controle e prevenção.',ch:'40h',mod:'EAD + Presencial',preco:'R$ 499,90',parc:'10x de R$ 59,90',img:'https://lh3.googleusercontent.com/d/1SgodQwXReUqgtGiEllY06XNsTnzAPi6g',pop:true},
+    {id:'nr11',nome:'NR 11 - Operação de Empilhadeira',cat:'NR',desc:'Capacitação para operação segura de empilhadeiras e equipamentos de transporte, movimentação e armazenagem de materiais.',ch:'16h',mod:'EAD + Presencial',preco:'R$ 799,90',parc:'10x de R$ 89,90',img:'https://lh3.googleusercontent.com/d/10YuvIxGM2tVYIoVMsVv1jie-4AJ678oe',pop:true},
+    {id:'nr12',nome:'NR 12 - Segurança no Trabalho em Máquinas e Equipamentos',cat:'NR',desc:'Capacitação em segurança no trabalho com máquinas e equipamentos, abordando medidas de proteção, dispositivos de segurança e procedimentos operacionais.',ch:'8h',mod:'EAD',preco:'R$ 49,90',parc:'',img:'https://lh3.googleusercontent.com/d/12mrnPXeaDZnpAHeRciG2meXs270hzb38',pop:false},
+    {id:'nr13',nome:'NR 13 - Caldeiras e Vasos de Pressão',cat:'NR',desc:'Treinamento para operação segura de caldeiras, vasos de pressão e tubulações, incluindo inspeções e procedimentos de emergência.',ch:'40h',mod:'EAD + Presencial',preco:'R$ 499,90',parc:'10x de R$ 59,90',img:'https://lh3.googleusercontent.com/d/1rvFcJkIUyOPqc7GZ7QZoreJlT-tO65lw',pop:false},
+    {id:'nr17',nome:'NR 17 - Ergonomia',cat:'NR',desc:'Adaptação das condições de trabalho às características psicofisiológicas dos trabalhadores, visando conforto, segurança e produtividade.',ch:'4h',mod:'EAD',preco:'R$ 79,90',parc:'',img:'https://lh3.googleusercontent.com/d/1KVPmR39MMs9StprwR0ZwvXr0XvV4fthE',pop:false},
+    {id:'nr18',nome:'NR 18 - Segurança e Saúde no Trabalho na Indústria da Construção',cat:'NR',desc:'Diretrizes de segurança e saúde ocupacional para atividades na indústria da construção civil, incluindo demolição, escavação e montagem.',ch:'8h',mod:'EAD',preco:'R$ 49,90',parc:'',img:'',pop:false},
+    {id:'nr20',nome:'NR 20 - Segurança e Saúde no Trabalho com Inflamáveis e Combustíveis',cat:'NR',desc:'Requisitos mínimos para a gestão da segurança e saúde no trabalho contra fatores de risco de acidentes com inflamáveis e combustíveis.',ch:'20h',mod:'EAD',preco:'R$ 89,90',parc:'',img:'',pop:false},
+    {id:'nr23',nome:'NR 23 - Brigada de Emergência',cat:'NR',desc:'Formação de brigadistas para prevenção e combate a incêndios, evacuação de áreas e primeiros socorros em situações de emergência.',ch:'20h',mod:'EAD + Presencial',preco:'R$ 99,90',parc:'2x de R$ 59,90',img:'https://lh3.googleusercontent.com/d/1yp-If011V-sU2SNFoIqHT1Jk0iWwod-S',pop:false},
+    {id:'nr31',nome:'NR 31 - Segurança e Saúde no Trabalho na Agricultura',cat:'NR',desc:'Normas de segurança e saúde para atividades na agricultura, pecuária, silvicultura, exploração florestal e aquicultura.',ch:'8h',mod:'EAD',preco:'R$ 79,90',parc:'',img:'https://lh3.googleusercontent.com/d/1kTw5A2vZwUMc4NbXB5eMfLmTztb9l707',pop:false},
+    {id:'nr32',nome:'NR 32 - Segurança e Saúde no Trabalho em Serviços de Saúde',cat:'NR',desc:'Diretrizes para proteção dos trabalhadores em serviços de saúde, incluindo riscos biológicos, químicos e radiações ionizantes.',ch:'8h',mod:'EAD',preco:'R$ 99,90',parc:'2x de R$ 59,90',img:'',pop:false},
+    {id:'nr33',nome:'NR 33 - Segurança e Saúde nos Trabalhos em Espaços Confinados',cat:'NR',desc:'Treinamento para trabalho seguro em espaços confinados, incluindo reconhecimento, avaliação, monitoramento e controle de riscos.',ch:'16h',mod:'EAD',preco:'R$ 79,90',parc:'',img:'https://lh3.googleusercontent.com/d/1RZ2ymT_JzYYuNLk7V7np39L11Njsyvt3',pop:false},
+    {id:'nr34',nome:'NR 34 - Trabalho a Quente',cat:'NR',desc:'Requisitos de segurança para atividades de trabalho a quente como soldagem, corte, esmerilhamento e operações similares.',ch:'4h',mod:'EAD',preco:'R$ 49,90',parc:'',img:'https://lh3.googleusercontent.com/d/1L97cE5NioZG3yfnivkcErke4NF_RPEzE',pop:false},
+    {id:'nr35',nome:'NR 35 - Trabalho em Altura',cat:'NR',desc:'Formação obrigatória para atividades executadas acima de 2 metros do nível inferior com risco de queda, incluindo parte teórica e prática.',ch:'8h',mod:'EAD',preco:'R$ 69,90',parc:'',img:'https://lh3.googleusercontent.com/d/1KaWIRfasMWlE8HE_204Qq175f4d8WS3U',pop:true},
+    {id:'nr36',nome:'NR 36 - Segurança e Saúde no Trabalho em Empresas de Abate e Processamento de Carnes',cat:'NR',desc:'Normas de segurança para atividades em empresas de abate e processamento de carnes e derivados, visando a proteção dos trabalhadores.',ch:'4h',mod:'EAD',preco:'R$ 59,90',parc:'',img:'',pop:false},
+    {id:'nr38',nome:'NR 38 - Segurança e Saúde no Trabalho nas Atividades de Limpeza Urbana e Manejo de Resíduos Sólidos',cat:'NR',desc:'Diretrizes de segurança para trabalhadores em atividades de limpeza urbana e manejo de resíduos sólidos.',ch:'8h',mod:'EAD',preco:'R$ 79,90',parc:'',img:'',pop:false},
+    {id:'ppr',nome:'PPR - Programa de Proteção Respiratória',cat:'Segurança',desc:'Programa de Proteção Respiratória com seleção adequada, uso correto e manutenção de respiradores para ambientes com riscos respiratórios.',ch:'4h',mod:'EAD',preco:'R$ 49,90',parc:'',img:'https://lh3.googleusercontent.com/d/1G0GYJv7eV993wjfnljtRohF0oSMaOJyB',pop:false},
+    {id:'quim',nome:'Manuseio de Produtos Químicos',cat:'Segurança',desc:'Treinamento sobre procedimentos seguros para manuseio, armazenamento e descarte de produtos químicos no ambiente de trabalho.',ch:'4h',mod:'EAD',preco:'R$ 49,90',parc:'',img:'',pop:false},
+    {id:'dd',nome:'Direção Defensiva',cat:'Segurança',desc:'Treinamento em técnicas de direção defensiva para prevenir acidentes no trânsito durante o trabalho, abordando comportamento seguro e legislação.',ch:'8h',mod:'EAD',preco:'R$ 79,90',parc:'',img:'https://lh3.googleusercontent.com/d/1qai80qaxAoDzXz2EMByHTAv9tRXunNme',pop:false}
 ];
-var DEFAULT_HERO = {alunos:'500+',cursos:'30+',empresas:'50+',whats:'5543991952403',senha:'eg2024'};
+var DEFAULT_HERO = {alunos:'500+',cursos:'21',empresas:'50+',whats:'5543991952403',senha:'eg2024'};
 
 // ============================================================
 // VARIÁVEIS EM MEMÓRIA (sem localStorage)
@@ -432,7 +432,7 @@ var DADOS = {hero: null, servicos: null};
 function toast(m,t){t=t||'success';var e=document.getElementById('toast');e.innerHTML=m;e.className='toast '+t+' show';setTimeout(function(){e.classList.remove('show');},4000);}
 
 // ============================================================
-// JSONBIN - Obter chave e bin ativos (do campo admin ou padrão)
+// JSONBIN - Obter chave e bin ativos
 // ============================================================
 function getJBKey(){
     var campo = document.getElementById('jbKey');
@@ -466,10 +466,9 @@ function carregarDoJsonBin(callback){
 }
 
 // ============================================================
-// JSONBIN - ESCRITA (PUBLICAR) - usa valores do campo admin
+// JSONBIN - ESCRITA (PUBLICAR)
 // ============================================================
 function publicarOnline(){
-    // Salvar dados do hero da tela
     DADOS.hero={
         alunos:document.getElementById('hAlunos').value.trim(),
         cursos:document.getElementById('hCursos').value.trim(),
@@ -487,7 +486,6 @@ function publicarOnline(){
         return;
     }
 
-    // Atualizar variáveis ativas na sessão
     JSONBIN_MASTER_KEY = masterKey;
     JSONBIN_BIN_ID = binId;
 
@@ -505,6 +503,7 @@ function publicarOnline(){
         return r.json();
     })
     .then(function(){
+        document.getElementById('jbBin').value = binId;
         toast('&#127757; Publicado com sucesso! Todos verão as mudanças.');
         render();
     })
@@ -525,7 +524,6 @@ function initApp(){
             DADOS.servicos = DEFAULT_SERVICOS;
             DADOS.hero = DEFAULT_HERO;
         }
-        // Usar senha do JSONBin se existir
         if(DADOS.hero.senha) ADM_SENHA = DADOS.hero.senha;
         render();
         var lo = document.getElementById('loadingOverlay');
@@ -569,7 +567,7 @@ function renderServicos(){
 function loadHero(){
     var h = DADOS.hero || DEFAULT_HERO;
     document.getElementById('statAlunos').textContent=h.alunos||'500+';
-    document.getElementById('statCursos').textContent=h.cursos||'30+';
+    document.getElementById('statCursos').textContent=h.cursos||'21';
     document.getElementById('statEmpresas').textContent=h.empresas||'50+';
     var wn = h.whats||'5543991952403';
     var wppLinks = document.querySelectorAll('.wpp-link');
@@ -577,7 +575,6 @@ function loadHero(){
 }
 
 function render(){renderServicos();loadHero();}
-
 // ============================================================
 // NAV
 // ============================================================
@@ -606,14 +603,12 @@ function openAdmin(){
     document.getElementById('hEmpresas').value=h.empresas||'';
     document.getElementById('hWhats').value=h.whats||'';
     document.getElementById('hSenha').value=h.senha||'eg2024';
-    // Preencher campos JSONBin com valores ativos
     document.getElementById('jbKey').value=JSONBIN_MASTER_KEY;
     document.getElementById('jbBin').value=JSONBIN_BIN_ID;
     loadAdmSrvs();
     document.getElementById('adminPanel').classList.add('show');
 }
 function closeAdmin(){
-    // Salvar hero da tela na memória
     DADOS.hero={
         alunos:document.getElementById('hAlunos').value.trim(),
         cursos:document.getElementById('hCursos').value.trim(),
@@ -622,7 +617,6 @@ function closeAdmin(){
         senha:document.getElementById('hSenha').value.trim()||'eg2024'
     };
     ADM_SENHA = DADOS.hero.senha;
-    // Atualizar chaves JSONBin na sessão
     var novaKey = document.getElementById('jbKey').value.trim();
     var novoBin = document.getElementById('jbBin').value.trim();
     if(novaKey) JSONBIN_MASTER_KEY = novaKey;
@@ -642,12 +636,12 @@ function loadAdmSrvs(){
             '<div class="adm-grid2">'+
                 '<div class="adm-fg"><label>Nome</label><input id="sn'+i+'" value="'+s.nome+'"></div>'+
                 '<div class="adm-fg"><label>Categoria</label><input id="sc'+i+'" value="'+s.cat+'"></div>'+
-                '<div class="adm-fg"><label>Carga Hor\u00e1ria</label><input id="sh'+i+'" value="'+s.ch+'"></div>'+
+                '<div class="adm-fg"><label>Carga Horária</label><input id="sh'+i+'" value="'+s.ch+'"></div>'+
                 '<div class="adm-fg"><label>Modalidade</label><input id="sm'+i+'" value="'+s.mod+'"></div>'+
             '</div>'+
-            '<div class="adm-fg"><label>Descri\u00e7\u00e3o</label><textarea id="sd'+i+'">'+s.desc+'</textarea></div>'+
+            '<div class="adm-fg"><label>Descrição</label><textarea id="sd'+i+'">'+s.desc+'</textarea></div>'+
             '<div class="adm-grid2">'+
-                '<div class="adm-fg"><label>Pre\u00e7o</label><input id="sp'+i+'" value="'+s.preco+'"></div>'+
+                '<div class="adm-fg"><label>Preço</label><input id="sp'+i+'" value="'+s.preco+'"></div>'+
                 '<div class="adm-fg"><label>Parcelas</label><input id="sx'+i+'" value="'+(s.parc||'')+'"></div>'+
             '</div>'+
             '<div class="adm-fg"><label>URL da Imagem</label><input id="si'+i+'" value="'+(s.img||'')+'"></div>'+
@@ -676,7 +670,7 @@ function saveSrv(i){
 }
 
 function delSrv(i){
-    if(!confirm('Remover este servi\u00e7o?'))return;
+    if(!confirm('Remover este serviço?'))return;
     DADOS.servicos.splice(i,1);
     toast('Removido!');loadAdmSrvs();
 }
